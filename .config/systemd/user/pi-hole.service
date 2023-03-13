@@ -1,0 +1,19 @@
+[Unit]
+Description=Start pihole in a podman container
+Requires=mount.service
+After=mount.service
+
+[Service]
+ExecStart=podman run \
+                 --name "pihole" \
+                 --rm \
+                 --tty \
+                 -p "53:53" \
+                 -p "53:53/udp" \
+                 --env "TZ='America/Los_Angeles'" \
+                 --dns=9.9.9.9 \
+                 docker.io/pihole/pihole
+
+
+[Install]
+WantedBy=default.target

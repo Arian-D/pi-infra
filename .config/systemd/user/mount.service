@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount
+
+[Service]
+Environment=MOUNT_POINT=/home/pi/.local/share/containers/storage
+Environment=ENCRYPTED_PARTITION=/dev/mapper/enc
+# TODO: Add a check to ensure the encrypted btrfs partition exists
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=sudo mount $ENCRYPTED_PARTITION $MOUNT_POINT
+ExecStop=sudo umount $MOUNT_POINT
+
+[Install]
+WantedBy=default.target

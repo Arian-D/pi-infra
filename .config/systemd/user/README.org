@@ -1,0 +1,12 @@
+#+title: SystemD services
+* Services
+- [[./mount.service][mount]] :: This oneshot service mounts my encrypted drive to the user
+  podman storage directory.
+- [[./pi-hole.service][pi-hole]] :: This service starts pihole _without_ volumes.
+* TODO [0/4] Undone
+- [ ] Wireguard
+- [ ] Gitea
+- [ ] CyberChef
+- [ ] Draw.io
+* 🤓 Resources to study
+- [[https://docs.fedoraproject.org/en-US/quick-docs/understanding-and-administering-systemd/][Fedora Guide]]

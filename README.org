@@ -1,0 +1,27 @@
+#+title: π-lab
+
+My homelab
+
+* Usage
+With =stow= and =podman= setup, run
+#+begin_src shell
+  stow --target=$HOME .
+  systemctl --user daemon-reload
+#+end_src
+and then individually enable services.
+* Description
+See [[.config/systemd/user/README.org][this]].
+** What this is
+A bunch of systemd =.service= files that symlink to =$HOME.=
+** What this is not
+- Docker compose or swarm
+- Fancy k8s or k3s cluster
+- Ansible or chef playbooks
+- Terraform
+- Declaratively defined Nix, Guix, or CoreOS definition
+
+
+This is not to discredit any of these tools nor does it mean that I
+don't use them in other places; it just seemed to me that systemd user
+services with podman get my job done without any hassle on a raspberry
+pi 4.
