@@ -4,6 +4,8 @@ Requires=mount.service
 After=mount.service
 
 [Service]
+# TODO: Restart on failure
+# TODO: Create & mount podman volumes for DNS cache
 ExecStart=podman run \
                  --name "pihole" \
                  --rm \
