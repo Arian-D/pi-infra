@@ -1,0 +1,21 @@
+[Unit]
+Description=Start syncthing in a podman container
+Requires=mount.service
+After=mount.service
+
+[Service]
+# TODO: Add this once --ignore gets added
+# ExecStartPre=podman volume create --ignore syncthing-volume
+ExecStart=podman run \
+                 --name "syncthing" \
+                 --rm \
+                 --tty \
+                 --env "PUID=1000" \
+                 --env "PGID=1000" \
+                 -v "syncthing-volume:/var/syncthing" \
+                 --network=host \
+                 docker.io/syncthing/syncthing
+
+
+[Install]
+WantedBy=default.target

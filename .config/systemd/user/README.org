@@ -2,13 +2,24 @@
 * Services
 - [[./mount.service][mount]] :: This oneshot service mounts my encrypted drive to the user
   podman storage directory.
-- [[./pi-hole.service][pi-hole]] :: This service starts pihole _without_ volumes.
-* TODO [0/6] Undone
-- [ ] Syncthing
+- [[./pi-hole.service][pi-hole]] :: This service starts [[https://pi-hole.net/][pihole]] _without_ volumes.
+- [[./syncthing.service][Syncthing]]  :: This service starts [[https://docs.syncthing.net/index.html][Syncthing]].
+
+* TODO [0/5] Undone
 - [ ] Wireguard
 - [ ] Gitea
 - [ ] CyberChef
 - [ ] Draw.io
 - [ ] Firewall =oneshot= service
+  #+begin_src shell
+    ufw allow ssh/tcp
+    ufw allow 53/tcp
+    ufw allow 53/udp
+    # ufw allow synncthing doesn't work because ubuntu is a PoS
+    ufw allow 22000/tcp
+    ufw allow 22000/udp
+    ufw allow 21027/udp
+    ufw limit 8384/tcp
+  #+end_src
 * 🤓 Resources to study
 - [[https://docs.fedoraproject.org/en-US/quick-docs/understanding-and-administering-systemd/][Fedora Guide]]
