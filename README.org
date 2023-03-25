@@ -1,18 +1,20 @@
 #+title: π-lab
 
-My homelab
+My humble homelab hosted on a Raspberry pi 4
 
 * Usage
-With =stow= and =podman= setup, run
-#+begin_src shell
-  stow --target=$HOME .
-  systemctl --user daemon-reload
+With [[https://www.gnu.org/software/stow/][stow]] and [[https://podman.io/][podman]] installed, run this:
+#+begin_src shell :results none
+  stow --target=$HOME .           # Symlink
+  systemctl --user daemon-reload  # Reload user services
 #+end_src
+
+
 and then individually enable services.
 * Description
-See [[.config/systemd/user/README.org][this]].
+See [[.config/systemd/user/README.org][this]]
 ** What this is
-A bunch of systemd =.service= files that symlink to =$HOME.=
+A bunch of systemd =.service= files that symlink to =$HOME=.
 ** What this is not
 - Docker compose or swarm
 - Fancy k8s or k3s cluster
